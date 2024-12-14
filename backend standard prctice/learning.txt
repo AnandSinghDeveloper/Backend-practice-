@@ -1,0 +1,16 @@
+# Purpose of process.exit(1):
+
+
+When you call process.exit(1), it immediately stops the execution of the Node.js application and exits with an error code of 1. This is typically used to indicate a failure scenario, such as:
+
+Failing to connect to a database.
+Missing critical environment variables.
+Any unhandled errors that prevent the application from continuing safely.
+
+
+# Why Use process.exit(1) in Your Case?
+
+In your application, the database connection is a critical dependency. If the database connection fails, there's no point in starting the server because it wouldn't function correctly without the database. By using process.exit(1), you:
+
+Stop the application gracefully to avoid further unintended behavior.
+Provide a clear signal to the operating system or any monitoring tool that the process failed due to an error.
